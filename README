@@ -1,0 +1,37 @@
+## Conexao:
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=local_laravel
+DB_USERNAME=local_developer
+DB_PASSWORD=secret
+DB_CONNECTION=mysql
+
+## Executar contêiner
+docker-compose up -d --build
+
+##Bash em seu contêiner:
+docker-compose exec app bash
+
+## Instalar Dependencias:
+composer install
+
+## Atualizar:
+composer update
+
+## Gerar Chave:
+php artisan key:generate
+
+### URL Projeto:
+http://localhost:8005/
+
+
+### URL Phpmyadmin:
+http://localhost:8081/
+
+### Compilar Assets:
+npm install
+npm run dev
+
+
+## Referencia:
+https://github.com/iwasherefirst2/laravel-docker
