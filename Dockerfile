@@ -28,15 +28,12 @@ RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
-# Install redis
-RUN pecl install -o -f redis \
-    &&  rm -rf /tmp/pear \
-    &&  docker-php-ext-enable redis
+
 
 # Set working directory
 WORKDIR /var/www
 
 # Copy custom configurations PHP
-COPY docker/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
+# COPY docker/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
 
 USER $user
